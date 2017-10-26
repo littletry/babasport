@@ -21,6 +21,9 @@
         <module>serviceProduct</module>
         <module>serviceSolr</module>
         <module>serviceSolr</module>
+        <module>serviceSolr</module>
+        <module>serviceSolr</module>
+        <module>serviceSolro</module>
     </modules>
 
     <!-- jdk1.8 -->

@@ -16,7 +16,7 @@
         <module name="serviceCms" />
         <module name="serviceCob" />
         <module name="serviceProduct" />
-        <module name="serviceSolr" />
+        <module name="serviceSolro" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +32,7 @@
       <module name="serviceCob" target="1.8" />
       <module name="serviceProduct" target="1.8" />
       <module name="serviceSolr" target="1.8" />
+      <module name="serviceSolro" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

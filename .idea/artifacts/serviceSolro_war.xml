@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="serviceSolro:war">
+    <output-path>$PROJECT_DIR$/serviceSolro/target</output-path>
+    <root id="archive" name="serviceSolro.war">
+      <element id="artifact" artifact-name="serviceSolro:war exploded" />
+    </root>
+  </artifact>
+</component>
