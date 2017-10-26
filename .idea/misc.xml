@@ -7,6 +7,7 @@
     <file type="web" url="file://$PROJECT_DIR$/serviceCms" />
     <file type="web" url="file://$PROJECT_DIR$/serviceCob" />
     <file type="web" url="file://$PROJECT_DIR$/serviceProduct" />
+    <file type="web" url="file://$PROJECT_DIR$/serviceSolro" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

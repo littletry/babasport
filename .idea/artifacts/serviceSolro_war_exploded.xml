@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="portal:war exploded">
-    <output-path>$PROJECT_DIR$/portal/target/portal</output-path>
+  <artifact type="exploded-war" name="serviceSolro:war exploded">
+    <output-path>$PROJECT_DIR$/serviceSolro/target/serviceSolro</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="portal" />
+          <element id="module-output" name="serviceSolro" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="interface-1.0-SNAPSHOT.jar">
@@ -95,12 +95,15 @@
           <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" />
           <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.6" />
+          <element id="archive" name="dao-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="dao" />
+          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/portal/target/portal/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/serviceSolro/target/serviceSolro/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="portal/web/Web" />
+      <element id="javaee-facet-resources" facet="serviceSolro/web/Web" />
     </root>
   </artifact>
 </component>

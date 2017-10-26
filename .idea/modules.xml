@@ -13,7 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/serviceCms/serviceCms.iml" filepath="$PROJECT_DIR$/serviceCms/serviceCms.iml" />
       <module fileurl="file://$PROJECT_DIR$/serviceCob/serviceCob.iml" filepath="$PROJECT_DIR$/serviceCob/serviceCob.iml" />
       <module fileurl="file://$PROJECT_DIR$/serviceProduct/serviceProduct.iml" filepath="$PROJECT_DIR$/serviceProduct/serviceProduct.iml" />
-      <module fileurl="file://$PROJECT_DIR$/serviceSolr/serviceSolr.iml" filepath="$PROJECT_DIR$/serviceSolr/serviceSolr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceSolro/serviceSolro.iml" filepath="$PROJECT_DIR$/serviceSolro/serviceSolro.iml" />
     </modules>
   </component>
 </project>
