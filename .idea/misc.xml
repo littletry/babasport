@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/console" />
+    <file type="web" url="file://$PROJECT_DIR$/login" />
+    <file type="web" url="file://$PROJECT_DIR$/portal" />
+    <file type="web" url="file://$PROJECT_DIR$/serviceCms" />
+    <file type="web" url="file://$PROJECT_DIR$/serviceCob" />
+    <file type="web" url="file://$PROJECT_DIR$/serviceProduct" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/serviceSolr/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

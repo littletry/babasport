@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>babasport</artifactId>
+        <groupId>top.lt.babasport</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>serviceProduct</artifactId>
+    <packaging>war</packaging>
+    <name>serviceProduct Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <!-- 依赖管理 -->
+    <dependencies>
+        <!--interface-->
+        <dependency>
+            <groupId>top.lt.babasport</groupId>
+            <artifactId>interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--dao-->
+        <dependency>
+            <groupId>top.lt.babasport</groupId>
+            <artifactId>dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- Tomcat8 servlet-api -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>8.5.20</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>serviceProduct</finalName>
+    </build>
+</project>
