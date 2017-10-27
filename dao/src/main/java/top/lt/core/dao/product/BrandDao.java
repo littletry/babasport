@@ -11,11 +11,18 @@ import java.util.List;
  */
 public interface BrandDao {
     /**
-     * 查询品牌的结果集
+     * 查询品牌结果集
      * @param brandQuery 查询条件的对象
      * @return  品牌列表
      */
     public List<Brand> selectBrandListByQuery(BrandQuery brandQuery);
+
+    /**
+     * 查询总条数
+     * @param brandQuery 查询条件的对象
+     * @return
+     */
+    public Integer selectCount(BrandQuery brandQuery);
 
 
 }
