@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-测试springmvc成功
+成功
 </body>
 </html>

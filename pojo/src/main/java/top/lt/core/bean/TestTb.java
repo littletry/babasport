@@ -1,12 +1,14 @@
 package top.lt.core.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author LittleTry
  * @date 2017-10-26
  */
-public class TestTb {
+public class TestTb implements Serializable{
+    private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
     private Date birthday;
