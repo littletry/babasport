@@ -25,9 +25,16 @@
 	<dubbo:application name="babasport-console"/>
 	<!-- 2：设置注册中心  地址  zookeeper在哪里  redis ... -->
 <!-- 	<dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/> -->
-	<dubbo:registry address="192.168.200.128:2181" protocol="zookeeper"/>
+	<!--<dubbo:registry address="192.168.200.128:2181" protocol="zookeeper"/>-->
+	<!--服务消费方设置不注册自己地址，不检查-->
+	<dubbo:registry address="N/A" check="false"/>
 	<!-- 4： 调用此接口对应的实现类-->
-	<dubbo:reference interface="top.lt.core.service.TestTbService" id="testTbService"/>
+	<dubbo:reference interface="top.lt.core.service.TestTbService" id="testTbService"
+		url="dubbo://127.0.0.1:20880"
+	/><!--直接连接地址-->
+
+	<!--全局设置,超时时间，不检查-->
+	<dubbo:consumer timeout="600000" check="false"/>
 	
 		
 </beans>

@@ -25,7 +25,9 @@
 	<dubbo:application name="serviceProduct"/>
 	<!-- 2：设置注册中心  地址  zookeeper在哪里  redis ... -->
 	<!-- 	<dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/> -->
-	<dubbo:registry address="192.168.200.128:2181" protocol="zookeeper"/>
+	<!--<dubbo:registry address="192.168.200.128:2181" protocol="zookeeper"/>-->
+	<!--服务提供方设置不注册自己地址-->
+	<dubbo:registry address="N/A"/>
 	<!-- 3：dubbo://192.168.39.80:20880  默认  设置提供服务的端口号 -->
 	<dubbo:protocol port="20880" name="dubbo"/>
 	<!-- 4： 暴露实现类-->
