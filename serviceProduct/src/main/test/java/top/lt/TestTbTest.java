@@ -5,9 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import service.TestTbService;
+import top.lt.core.service.TestTbService;
 import top.lt.core.bean.TestTb;
-import top.lt.core.dao.TestTbDao;
 
 import java.util.Date;
 

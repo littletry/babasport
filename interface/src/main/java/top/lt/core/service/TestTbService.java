@@ -1,4 +1,4 @@
-package service;
+package top.lt.core.service;
 
 import top.lt.core.bean.TestTb;
 
