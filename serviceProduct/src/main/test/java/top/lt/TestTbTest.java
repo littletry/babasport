@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import top.lt.core.service.TestTbService;
 import top.lt.core.bean.TestTb;
+import top.lt.core.service.product.BrandService;
 
 import java.util.Date;
 
@@ -25,9 +26,11 @@ public class TestTbTest {
     public void testAdd() throws Exception{
 
         TestTb testTb = new TestTb();
-        testTb.setName("小李");
+        testTb.setName("小中");
         testTb.setBirthday(new Date());
 
         testTbService.insertTestTb(testTb);
     }
+
+
 }

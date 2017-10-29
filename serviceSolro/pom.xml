@@ -24,11 +24,10 @@
             <artifactId>dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- Tomcat8 servlet-api -->
+        <!-- tomcat7 servlet-api -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <version>8.5.20</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

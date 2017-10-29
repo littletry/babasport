@@ -47,7 +47,7 @@ public class CenterController {
 
         return "right";
     }
-    //商品身体-
+    //商品身体
     @RequestMapping(value = "/frame/product_main.do")
     public String product_main(Model model){
 

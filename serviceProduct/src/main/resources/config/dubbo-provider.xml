@@ -32,6 +32,7 @@
 	<dubbo:protocol port="20880" name="dubbo"/>
 	<!-- 4： 暴露实现类-->
 	<dubbo:service interface="top.lt.core.service.TestTbService" ref="testTbService"/>
+	<dubbo:service interface="top.lt.core.service.product.BrandService" ref="brandService"/>
 	
 	
 	
