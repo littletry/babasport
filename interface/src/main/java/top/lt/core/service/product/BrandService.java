@@ -1,6 +1,7 @@
 package top.lt.core.service.product;
 
 import cn.itcast.common.page.Pagination;
+import top.lt.core.bean.product.Brand;
 
 /**
  * @author LittleTry
@@ -15,4 +16,11 @@ public interface BrandService {
      * @return
      */
     public Pagination selectPaginationByQuery(String name, Integer isDisplay, Integer pageNo);
+
+    /**
+     * 通过id查询
+     * @param id
+     * @return
+     */
+    public Brand selectBrandById(Long id);
 }

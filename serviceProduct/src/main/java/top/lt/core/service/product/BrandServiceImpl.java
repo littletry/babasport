@@ -5,6 +5,7 @@ import cn.itcast.common.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import top.lt.core.bean.product.Brand;
 import top.lt.core.bean.product.BrandQuery;
 import top.lt.core.dao.product.BrandDao;
 
@@ -56,6 +57,11 @@ public class BrandServiceImpl implements BrandService{
         pagination.pageView(url, params.toString());
 
         return pagination;
+    }
+
+    @Override
+    public Brand selectBrandById(Long id) {
+        return brandDao.selectBrandById(id);
     }
 
 }

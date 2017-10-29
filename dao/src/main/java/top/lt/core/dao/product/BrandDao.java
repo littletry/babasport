@@ -24,5 +24,11 @@ public interface BrandDao {
      */
     public Integer selectCount(BrandQuery brandQuery);
 
+    /**
+     * 通过ID查询品牌
+     * @param id
+     * @return
+     */
+    public Brand selectBrandById(Long id);
 
 }

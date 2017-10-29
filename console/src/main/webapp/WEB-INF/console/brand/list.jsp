@@ -15,7 +15,7 @@
 	<div class="clear"></div>
 </div>
 <div class="body-box">
-<form action="list.do" method="post" style="padding-top:5px;">
+<form action="/brand/list.do" method="post" style="padding-top:5px;">
 品牌名称: <input type="text" name="name" value="${name}"/>
 	<select name="isDisplay">
 		<option value="1" <c:if test="${isDisplay == 1}">selected="selected"</c:if>>是</option>
@@ -50,7 +50,7 @@
 				<c:if test="${brand.isDisplay == 0 }">否</c:if>
 			</td>
 			<td align="center">
-				<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
+				<a class="pn-opt" href="/brand/toEdit.do?id=${brand.id}">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
 			</td>
 		</tr>
 	</c:forEach>
