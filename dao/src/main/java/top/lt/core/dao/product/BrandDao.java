@@ -31,4 +31,16 @@ public interface BrandDao {
      */
     public Brand selectBrandById(Long id);
 
+    /**
+     * 修改
+     * @param brand
+     */
+    public void updateBrandById(Brand brand);
+
 }
+
+
+
+
+
+
