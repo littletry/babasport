@@ -17,6 +17,7 @@ import java.util.List;
  * 修改
  * 添加
  * 删除（单）
+ *
  * @author LittleTry
  * @date 2017-10-29
  */
@@ -28,36 +29,39 @@ public class BrandController {
 
     //查询
     @RequestMapping(value = "/brand/list.do")
-    public String list(String name,Integer isDisplay,Integer pageNo,Model model){
+    public String list(String name, Integer isDisplay, Integer pageNo, Model model) {
 
         Pagination pagination = brandService.selectPaginationByQuery(name, isDisplay, pageNo);
-        model.addAttribute("pagination",pagination);
+        model.addAttribute("pagination", pagination);
         model.addAttribute("name", name);
-        if (null != isDisplay){
+        if (null != isDisplay) {
             model.addAttribute("isDisplay", isDisplay);
-        }else {
+        } else {
             model.addAttribute("isDisplay", 1);
         }
         return "brand/list";
     }
+
     //去修改页面
     @RequestMapping(value = "/brand/toEdit.do")
-    public String toEdit(Long id,Model model){
+    public String toEdit(Long id, Model model) {
         Brand brand = brandService.selectBrandById(id);
-        model.addAttribute("brand",brand);
+        model.addAttribute("brand", brand);
         return "brand/edit";
     }
+
     //修改
     @RequestMapping(value = "/brand/edit.do")
-    public String edit(Brand brand){
+    public String edit(Brand brand) {
 
         brandService.updateBrandById(brand);
 
         return "redirect:/brand/list.do";
     }
+
     //删除
     @RequestMapping(value = "/brand/deletes.do")
-    public String deletes(Long[] ids){
+    public String deletes(Long[] ids) {//传过来的参数（String name,Integer isDisplay,Integer pageNo）使用forward时直接就带过去了
         brandService.deletes(ids);
         return "forward:/brand/list.do";
     }
