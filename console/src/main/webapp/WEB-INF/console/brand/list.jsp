@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>babasport-list</title>
+	<script type="text/javascript">
+		//全选
+		function checkBox(name,checked) {
+			$("input[name="+name+"]").attr("checked",checked);
+        }
+	</script>
 </head>
 <body>
 <div class="box-positon">
