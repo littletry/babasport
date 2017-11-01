@@ -55,6 +55,12 @@ public class BrandController {
 
         return "redirect:/brand/list.do";
     }
+    //删除
+    @RequestMapping(value = "/brand/deletes.do")
+    public String deletes(Long[] ids){
+        brandService.deletes(ids);
+        return "redirect:/brand/list.do";
+    }
 
 }
 

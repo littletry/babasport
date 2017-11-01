@@ -29,4 +29,10 @@ public interface BrandService {
      * @param brand
      */
     public void updateBrandById(Brand brand);
+
+    /**
+     * 删除
+     * @param ids
+     */
+    public void deletes(Long[] ids);
 }

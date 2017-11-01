@@ -69,5 +69,16 @@
         </where>
     </update>
 
+    <!--删除-->
+    <delete id="deletes" parameterType="Long">
+        DELETE FROM bbs_brand
+        <where>
+            id IN
+            <foreach collection="array" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
 
 </mapper>
