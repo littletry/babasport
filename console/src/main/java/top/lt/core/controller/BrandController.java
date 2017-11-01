@@ -59,7 +59,7 @@ public class BrandController {
     @RequestMapping(value = "/brand/deletes.do")
     public String deletes(Long[] ids){
         brandService.deletes(ids);
-        return "redirect:/brand/list.do";
+        return "forward:/brand/list.do";
     }
 
 }
