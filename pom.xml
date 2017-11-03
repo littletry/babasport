@@ -20,6 +20,7 @@
         <module>serviceCob</module>
         <module>serviceProduct</module>
         <module>serviceSolro</module>
+        <module>mybatisGenerator</module>
     </modules>
 
     <!-- jdk1.8 -->
@@ -312,11 +313,11 @@
                 <version>5.8.0</version>
             </dependency>
             <!-- Active MQ 结束 -->
-            <!-- Tomcat7 servlet-api -->
+            <!-- Tomcat8 servlet-api -->
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
                 <artifactId>tomcat-jsp-api</artifactId>
-                <version>7.0.81</version>
+                <version>8.5.20</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
