@@ -9,6 +9,7 @@
         <module name="common" />
         <module name="console" />
         <module name="dao" />
+        <module name="generatorSql" />
         <module name="interface" />
         <module name="login" />
         <module name="pojo" />
@@ -24,6 +25,7 @@
       <module name="common" target="1.8" />
       <module name="console" target="1.8" />
       <module name="dao" target="1.8" />
+      <module name="generatorSql" target="1.8" />
       <module name="interface" target="1.8" />
       <module name="login" target="1.8" />
       <module name="mybatisGenerator" target="1.8" />

@@ -21,6 +21,7 @@
         <module>serviceProduct</module>
         <module>serviceSolro</module>
         <module>mybatisGenerator</module>
+        <module>generatorSql</module>
     </modules>
 
     <!-- jdk1.8 -->
