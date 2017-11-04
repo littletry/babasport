@@ -2,6 +2,9 @@ package top.lt.core.service.product;
 
 import cn.itcast.common.page.Pagination;
 import top.lt.core.bean.product.Brand;
+import top.lt.core.bean.product.BrandQuery;
+
+import java.util.List;
 
 /**
  * @author LittleTry
@@ -23,6 +26,14 @@ public interface BrandService {
      * @return
      */
     public Brand selectBrandById(Long id);
+
+    /**
+     * 查询品牌结果集
+     *
+     * @param brandQuery 查询条件的对象
+     * @return 品牌列表
+     */
+    public List<Brand> selectBrandListByQuery(Integer isDisplay);
 
     /**
      * 修改

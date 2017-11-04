@@ -9,6 +9,8 @@ import top.lt.core.bean.product.Brand;
 import top.lt.core.bean.product.BrandQuery;
 import top.lt.core.dao.product.BrandDao;
 
+import java.util.List;
+
 /**品牌管理
  * @author LittleTry
  * @date 2017-10-27
@@ -62,6 +64,13 @@ public class BrandServiceImpl implements BrandService{
     @Override
     public Brand selectBrandById(Long id) {
         return brandDao.selectBrandById(id);
+    }
+
+    @Override
+    public List<Brand> selectBrandListByQuery(Integer isDisplay) {
+        BrandQuery brandQuery = new BrandQuery();
+        brandQuery.setIsDisplay(isDisplay);
+        return brandDao.selectBrandListByQuery(brandQuery);
     }
 
     @Override

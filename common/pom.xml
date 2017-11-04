@@ -217,7 +217,7 @@
             <artifactId>activemq-pool</artifactId>
         </dependency>
         <!-- Active MQ 结束 -->
-        <!-- tomcat8 servlet-api -->
+        <!-- tomcat servlet-api -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
