@@ -9,7 +9,6 @@
         <module name="common" />
         <module name="console" />
         <module name="dao" />
-        <module name="generatorSql" />
         <module name="interface" />
         <module name="login" />
         <module name="pojo" />
@@ -18,6 +17,7 @@
         <module name="serviceCob" />
         <module name="serviceProduct" />
         <module name="serviceSolro" />
+        <module name="Tgenerator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,6 +36,7 @@
       <module name="serviceProduct" target="1.8" />
       <module name="serviceSolr" target="1.8" />
       <module name="serviceSolro" target="1.8" />
+      <module name="Tgenerator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -15,7 +15,7 @@
 
     <!-- 依赖管理 -->
     <dependencies>
-        <!--pojo-->
+        <!--bean-->
         <dependency>
             <groupId>top.lt.babasport</groupId>
             <artifactId>pojo</artifactId>
