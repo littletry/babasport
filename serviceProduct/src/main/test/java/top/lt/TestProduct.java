@@ -35,7 +35,7 @@ public class TestProduct {
         //productQuery.createCriteria().andBrandIdEqualTo(4L).andNameLike("%好莱坞%");
         productQuery.setPageNo(2);
         productQuery.setPageSize(10);
-        productQuery.setOrderByClause("id ");
+
         List<Product> products = productDao.selectByExample(productQuery);
         for (Product product:products) {
             System.out.println(product);
