@@ -4,44 +4,54 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Sku implements Serializable {
+    /**
+     * ID
+     */
     private Long id;
 
+    /**
+     * 商品ID
+     */
     private Long productId;
 
+    /**
+     * 颜色ID
+     */
     private Long colorId;
 
+    /**
+     * 尺码
+     */
     private String size;
 
+    /**
+     * 市场价
+     */
     private Float marketPrice;
 
+    /**
+     * 售价
+     */
     private Float price;
 
+    /**
+     * 运费 默认10元
+     */
     private Float deliveFee;
 
+    /**
+     * 库存
+     */
     private Integer stock;
 
+    /**
+     * 购买限制
+     */
     private Integer upperLimit;
 
     private Date createTime;
 
     private static final long serialVersionUID = 1L;
-
-    public Sku(Long id, Long productId, Long colorId, String size, Float marketPrice, Float price, Float deliveFee, Integer stock, Integer upperLimit, Date createTime) {
-        this.id = id;
-        this.productId = productId;
-        this.colorId = colorId;
-        this.size = size;
-        this.marketPrice = marketPrice;
-        this.price = price;
-        this.deliveFee = deliveFee;
-        this.stock = stock;
-        this.upperLimit = upperLimit;
-        this.createTime = createTime;
-    }
-
-    public Sku() {
-        super();
-    }
 
     public Long getId() {
         return id;

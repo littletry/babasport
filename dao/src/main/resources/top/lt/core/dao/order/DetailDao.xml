@@ -2,16 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="top.lt.core.dao.order.DetailDao" >
   <resultMap id="BaseResultMap" type="top.lt.core.bean.order.Detail" >
-    <constructor >
-      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="order_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="product_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="product_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="color" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="size" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="amount" jdbcType="INTEGER" javaType="java.lang.Integer" />
-    </constructor>
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="product_id" property="productId" jdbcType="BIGINT" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +70,12 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, order_id, product_id, product_name, color, size, price, amount
+    <if test="fields == null" >
+      id, order_id, product_id, product_name, color, size, price, amount
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.lt.core.bean.order.DetailQuery" >
     select
@@ -87,10 +90,13 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
+    id,order_id,product_id,product_name,color,size,price,amount
     from bbs_detail
     where id = #{id,jdbcType=BIGINT}
   </select>

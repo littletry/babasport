@@ -3,38 +3,47 @@ package top.lt.core.bean.order;
 import java.io.Serializable;
 
 public class Detail implements Serializable {
+    /**
+     * ID
+     */
     private Long id;
 
+    /**
+     * 订单ID
+     */
     private Long orderId;
 
+    /**
+     * 商品编号
+     */
     private Long productId;
 
+    /**
+     * 商品名称
+     */
     private String productName;
 
+    /**
+     *  颜色名称
+     */
     private String color;
 
+    /**
+     * 尺码
+     */
     private String size;
 
+    /**
+     * 商品销售价
+     */
     private Float price;
 
+    /**
+     * 购买数量
+     */
     private Integer amount;
 
     private static final long serialVersionUID = 1L;
-
-    public Detail(Long id, Long orderId, Long productId, String productName, String color, String size, Float price, Integer amount) {
-        this.id = id;
-        this.orderId = orderId;
-        this.productId = productId;
-        this.productName = productName;
-        this.color = color;
-        this.size = size;
-        this.price = price;
-        this.amount = amount;
-    }
-
-    public Detail() {
-        super();
-    }
 
     public Long getId() {
         return id;

@@ -3,26 +3,27 @@ package top.lt.core.bean.product;
 import java.io.Serializable;
 
 public class Color implements Serializable {
+    /**
+     * ID
+     */
     private Long id;
 
+    /**
+     * 名称
+     */
     private String name;
 
+    /**
+     * 父ID为色系
+     */
     private Long parentId;
 
+    /**
+     * 颜色对应的衣服小图
+     */
     private String imgUrl;
 
     private static final long serialVersionUID = 1L;
-
-    public Color(Long id, String name, Long parentId, String imgUrl) {
-        this.id = id;
-        this.name = name;
-        this.parentId = parentId;
-        this.imgUrl = imgUrl;
-    }
-
-    public Color() {
-        super();
-    }
 
     public Long getId() {
         return id;

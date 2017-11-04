@@ -1,10 +1,9 @@
 package top.lt.core.dao.product;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import top.lt.core.bean.product.Color;
 import top.lt.core.bean.product.ColorQuery;
-
-import java.util.List;
 
 public interface ColorDao {
     int countByExample(ColorQuery example);

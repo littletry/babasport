@@ -2,12 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="top.lt.core.dao.product.ColorDao" >
   <resultMap id="BaseResultMap" type="top.lt.core.bean.product.Color" >
-    <constructor >
-      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="parent_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="img_url" jdbcType="VARCHAR" javaType="java.lang.String" />
-    </constructor>
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +66,12 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, parent_id, img_url
+    <if test="fields == null" >
+      id, name, parent_id, img_url
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.lt.core.bean.product.ColorQuery" >
     select
@@ -83,10 +86,13 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
+    id,name,parent_id,img_url
     from bbs_color
     where id = #{id,jdbcType=BIGINT}
   </select>

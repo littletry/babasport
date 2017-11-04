@@ -2,21 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="top.lt.core.dao.order.OrderDao" >
   <resultMap id="BaseResultMap" type="top.lt.core.bean.order.Order" >
-    <constructor >
-      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="deliver_fee" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="total_price" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="order_price" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="payment_way" jdbcType="BIT" javaType="Integer" />
-      <arg column="payment_cash" jdbcType="BIT" javaType="Integer" />
-      <arg column="delivery" jdbcType="BIT" javaType="Integer" />
-      <arg column="is_confirm" jdbcType="BIT" javaType="java.lang.Boolean" />
-      <arg column="is_paiy" jdbcType="BIT" javaType="Integer" />
-      <arg column="order_state" jdbcType="BIT" javaType="Integer" />
-      <arg column="create_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="note" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="buyer_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-    </constructor>
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="deliver_fee" property="deliverFee" jdbcType="REAL" />
+    <result column="total_price" property="totalPrice" jdbcType="REAL" />
+    <result column="order_price" property="orderPrice" jdbcType="REAL" />
+    <result column="payment_way" property="paymentWay" jdbcType="BIT" />
+    <result column="payment_cash" property="paymentCash" jdbcType="BIT" />
+    <result column="delivery" property="delivery" jdbcType="BIT" />
+    <result column="is_confirm" property="isConfirm" jdbcType="BIT" />
+    <result column="is_paiy" property="isPaiy" jdbcType="BIT" />
+    <result column="order_state" property="orderState" jdbcType="BIT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="buyer_id" property="buyerId" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,8 +75,13 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, deliver_fee, total_price, order_price, payment_way, payment_cash, delivery, is_confirm, 
-    is_paiy, order_state, create_date, note, buyer_id
+    <if test="fields == null" >
+      id, deliver_fee, total_price, order_price, payment_way, payment_cash, delivery, is_confirm, 
+      is_paiy, order_state, create_date, note, buyer_id
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.lt.core.bean.order.OrderQuery" >
     select
@@ -93,10 +96,13 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
+    id,deliver_fee,total_price,order_price,payment_way,payment_cash,delivery,is_confirm,is_paiy,order_state,create_date,note,buyer_id
     from bbs_order
     where id = #{id,jdbcType=BIGINT}
   </select>

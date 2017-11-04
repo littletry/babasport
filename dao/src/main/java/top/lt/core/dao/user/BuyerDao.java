@@ -1,10 +1,9 @@
 package top.lt.core.dao.user;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import top.lt.core.bean.user.Buyer;
 import top.lt.core.bean.user.BuyerQuery;
-
-import java.util.List;
 
 public interface BuyerDao {
     int countByExample(BuyerQuery example);

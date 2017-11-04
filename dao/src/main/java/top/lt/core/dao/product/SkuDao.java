@@ -1,10 +1,9 @@
 package top.lt.core.dao.product;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import top.lt.core.bean.product.Sku;
 import top.lt.core.bean.product.SkuQuery;
-
-import java.util.List;
 
 public interface SkuDao {
     int countByExample(SkuQuery example);

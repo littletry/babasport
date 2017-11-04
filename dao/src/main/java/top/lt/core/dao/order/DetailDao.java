@@ -1,10 +1,9 @@
 package top.lt.core.dao.order;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import top.lt.core.bean.order.Detail;
 import top.lt.core.bean.order.DetailQuery;
-
-import java.util.List;
 
 public interface DetailDao {
     int countByExample(DetailQuery example);

@@ -1,10 +1,9 @@
 package top.lt.core.dao.order;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import top.lt.core.bean.order.Order;
 import top.lt.core.bean.order.OrderQuery;
-
-import java.util.List;
 
 public interface OrderDao {
     int countByExample(OrderQuery example);

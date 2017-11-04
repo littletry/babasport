@@ -2,18 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="top.lt.core.dao.product.SkuDao" >
   <resultMap id="BaseResultMap" type="top.lt.core.bean.product.Sku" >
-    <constructor >
-      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="product_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="color_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="size" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="market_price" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="delive_fee" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="stock" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="upper_limit" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-    </constructor>
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="product_id" property="productId" jdbcType="BIGINT" />
+    <result column="color_id" property="colorId" jdbcType="BIGINT" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="market_price" property="marketPrice" jdbcType="REAL" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="delive_fee" property="deliveFee" jdbcType="REAL" />
+    <result column="stock" property="stock" jdbcType="INTEGER" />
+    <result column="upper_limit" property="upperLimit" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,8 +72,13 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, product_id, color_id, size, market_price, price, delive_fee, stock, upper_limit, 
-    create_time
+    <if test="fields == null" >
+      id, product_id, color_id, size, market_price, price, delive_fee, stock, upper_limit, 
+      create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.lt.core.bean.product.SkuQuery" >
     select
@@ -90,10 +93,13 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
+    id,product_id,color_id,size,market_price,price,delive_fee,stock,upper_limit,create_time
     from bbs_sku
     where id = #{id,jdbcType=BIGINT}
   </select>
