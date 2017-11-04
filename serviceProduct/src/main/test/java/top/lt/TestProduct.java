@@ -35,12 +35,17 @@ public class TestProduct {
         //productQuery.createCriteria().andBrandIdEqualTo(4L).andNameLike("%好莱坞%");
         productQuery.setPageNo(2);
         productQuery.setPageSize(10);
-
+        //排序 倒序
+        productQuery.setOrderByClause("id desc");
+        //指定字段查詢
+        //productQuery.setFields("id,brand_id");
         List<Product> products = productDao.selectByExample(productQuery);
         for (Product product:products) {
             System.out.println(product);
         }
-
+        //查詢总条数
+        int countByExample = productDao.countByExample(productQuery);
+        System.out.println(countByExample);
     }
 
 
