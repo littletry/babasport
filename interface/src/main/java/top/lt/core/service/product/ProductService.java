@@ -1,6 +1,9 @@
 package top.lt.core.service.product;
 
 import cn.itcast.common.page.Pagination;
+import top.lt.core.bean.product.Color;
+
+import java.util.List;
 
 /**
  * @author LittleTry
@@ -16,4 +19,10 @@ public interface ProductService {
      * @return
      */
     public Pagination selectPaginationByQuery(Integer pageNo, String name, Long brandId, Boolean isShow);
+
+    /**
+     * 查询所有颜色
+     * @return
+     */
+    public List<Color> selectColorList();
 }
