@@ -4,12 +4,12 @@ import cn.itcast.common.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import top.lt.core.bean.product.Color;
-import top.lt.core.bean.product.ColorQuery;
-import top.lt.core.bean.product.ProductQuery;
+import top.lt.core.bean.product.*;
 import top.lt.core.dao.product.ColorDao;
 import top.lt.core.dao.product.ProductDao;
+import top.lt.core.dao.product.SkuDao;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
         if (null != isShow) {
             criteria.andIsShowEqualTo(isShow);
             params.append("&isShow=").append(isShow);
-        }else {
+        } else {
             criteria.andIsShowEqualTo(false);
             params.append("&isShow=").append(false);
         }
@@ -57,7 +57,7 @@ public class ProductServiceImpl implements ProductService {
                 productDao.selectByExample(productQuery)
         );
         String url = "/product/list.do";
-        pagination.pageView(url,params.toString());
+        pagination.pageView(url, params.toString());
         return pagination;
     }
 
@@ -66,9 +66,54 @@ public class ProductServiceImpl implements ProductService {
     private ColorDao colorDao;
 
     //颜色结果集
-    public List<Color> selectColorList(){
+    @Override
+    public List<Color> selectColorList() {
         ColorQuery colorQuery = new ColorQuery();
         colorQuery.createCriteria().andParentIdNotEqualTo(0L);
         return colorDao.selectByExample(colorQuery);
+    }
+
+    @Autowired
+    private SkuDao skuDao;
+    //商品保存
+    @Override
+    public void insertProduct(Product product) {
+        //保存商品
+        //商品编号全国唯一
+
+        //下架状态 后台程序写的
+        product.setIsShow(false);
+        //删除 后台程序写的不删除
+        product.setIsDel(true);
+        productDao.insertSelective(product);
+        //返回ID
+        String[] colors = product.getColors().split(",");
+        String[] sizes = product.getSizes().split(",");
+        for (String color :colors) {
+            for (String size:sizes) {
+                //保存SKU
+                Sku sku = new Sku();
+                //商品ID
+                sku.setProductId(product.getId());
+                //颜色
+                sku.setColorId(Long.parseLong(color));
+                //尺码
+                sku.setSize(size);
+                //市场价
+                sku.setMarketPrice(999f);
+                //售价
+                sku.setPrice(666f);
+                //运费
+                sku.setDeliveFee(8f);
+                //库存
+                sku.setStock(0);
+                //限制
+                sku.setUpperLimit(200);
+                //时间
+                sku.setCreateTime(new Date());
+
+                skuDao.insertSelective(sku);
+            }
+        }
     }
 }

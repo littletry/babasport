@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.lt.core.bean.product.Brand;
 import top.lt.core.bean.product.Color;
+import top.lt.core.bean.product.Product;
 import top.lt.core.service.product.BrandService;
 import top.lt.core.service.product.ProductService;
 
@@ -62,4 +63,12 @@ public class ProductController {
 
         return "product/add";
     }
+
+    //商品保存
+    @RequestMapping(value = "/product/add.do")
+    public String add(Product product){
+        productService.insertProduct(product);
+        return "redirect:/product/list.do";
+    }
+
 }

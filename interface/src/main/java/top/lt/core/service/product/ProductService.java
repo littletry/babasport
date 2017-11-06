@@ -2,6 +2,7 @@ package top.lt.core.service.product;
 
 import cn.itcast.common.page.Pagination;
 import top.lt.core.bean.product.Color;
+import top.lt.core.bean.product.Product;
 
 import java.util.List;
 
@@ -25,4 +26,10 @@ public interface ProductService {
      * @return
      */
     public List<Color> selectColorList();
+
+    /**
+     * 保存商品
+     * @param product
+     */
+    public void insertProduct(Product product);
 }

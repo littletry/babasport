@@ -55,7 +55,7 @@ $(function(){
 // 					height : '400px'
 				}; 
 				KindEditor.create('#productdesc',kingEditorParams);
-				KindEditor.sync();
+				KindEditor.sync();//把富文本编辑器中的图片同步到textarea
 			}
 		});
 	});
