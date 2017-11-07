@@ -79,6 +79,14 @@ public class Product implements Serializable {
      */
     private Date createTime;
 
+    /**
+     * 附加方法
+     * @return
+     */
+    public String[] getImages(){
+        return imgUrl.split(",");
+    }
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
