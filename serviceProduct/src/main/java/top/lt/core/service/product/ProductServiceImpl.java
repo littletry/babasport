@@ -4,6 +4,7 @@ import cn.itcast.common.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
 import top.lt.core.bean.product.*;
 import top.lt.core.dao.product.ColorDao;
 import top.lt.core.dao.product.ProductDao;
@@ -75,11 +76,15 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private SkuDao skuDao;
+    @Autowired
+    private Jedis jedis;
     //商品保存
     @Override
     public void insertProduct(Product product) {
         //保存商品
-        //商品编号全国唯一
+        //商品编号全国唯一,redis生成
+        Long id = jedis.incr("pno");
+        product.setId(id);
 
         //下架状态 后台程序写的
         product.setIsShow(false);
