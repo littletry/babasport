@@ -35,6 +35,7 @@
 	<dubbo:service interface="top.lt.core.service.product.BrandService" ref="brandService"/>
 	<dubbo:service interface="top.lt.core.service.product.UploadService" ref="uploadService"/>
 	<dubbo:service interface="top.lt.core.service.product.ProductService" ref="productService"/>
+	<dubbo:service interface="top.lt.core.service.product.SkuService" ref="skuService"/>
 
 
 	
