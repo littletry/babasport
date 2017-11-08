@@ -33,7 +33,7 @@ public class SkuController {
         return "sku/list";
     }
     //修改 异步
-    //json字符串转对象javaBean
+    //json字符串转对象javaBean，还没做
     @RequestMapping(value = "/sku/addSku.do")
     public void addSku(Sku sku, HttpServletResponse response) throws IOException {
         skuService.updateSkuById(sku);
