@@ -4,6 +4,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>babasport-list</title>
+	<script type="text/javascript">
+		//修改
+		function updateSku(skuId) {
+            //市场价
+            $("#m"+skuId).attr("disabled",false);
+            //售价
+            $("#p"+skuId).attr("disabled",false);
+            //库存
+            $("#s"+skuId).attr("disabled",false);
+            //限制
+            $("#l"+skuId).attr("disabled",false);
+            //费用
+            $("#f"+skuId).attr("disabled",false);
+        }
+
+	</script>
 </head>
 <body>
 <div class="box-positon">
@@ -35,13 +51,13 @@
 			<td>${sku.productId}</td>
 			<td align="center">${sku.color.name}</td>
 			<td align="center">${sku.size}</td>
-			<td align="center"><input type="text" id="m52" value="${sku.marketPrice}" disabled="disabled" size="10"/></td>
-			<td align="center"><input type="text" id="p52" value="${sku.price}" disabled="disabled" size="10"/></td>
-			<td align="center"><input type="text" id="i52" value="${sku.stock}" disabled="disabled" size="10"/></td>
-			<td align="center"><input type="text" id="l52" value="${sku.upperLimit}" disabled="disabled" size="10"/></td>
-			<td align="center"><input type="text" id="f52" value="${sku.deliveFee}" disabled="disabled" size="10"/></td>
+			<td align="center"><input type="text" id="m${sku.id}" value="${sku.marketPrice}" disabled="disabled" size="10"/></td>
+			<td align="center"><input type="text" id="p${sku.id}" value="${sku.price}" disabled="disabled" size="10"/></td>
+			<td align="center"><input type="text" id="s${sku.id}" value="${sku.stock}" disabled="disabled" size="10"/></td>
+			<td align="center"><input type="text" id="l${sku.id}" value="${sku.upperLimit}" disabled="disabled" size="10"/></td>
+			<td align="center"><input type="text" id="f${sku.id}" value="${sku.deliveFee}" disabled="disabled" size="10"/></td>
 			<td align="center">不是</td>
-			<td align="center"><a href="javascript:updateSku(52)" class="pn-opt">修改</a> | <a href="javascript:addSku(52)" class="pn-opt">保存</a></td>
+			<td align="center"><a href="javascript:updateSku('${sku.id}')" class="pn-opt">修改</a> | <a href="javascript:addSku(52)" class="pn-opt">保存</a></td>
 		</tr>
 	</c:forEach>
 
