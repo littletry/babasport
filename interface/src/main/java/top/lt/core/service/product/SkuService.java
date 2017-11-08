@@ -15,4 +15,10 @@ public interface SkuService {
      * @return
      */
     public List<Sku> selectSkuListByProductId(Long productId);
+
+    /**
+     * 修改
+     * @param sku
+     */
+    public void updateSkuById(Sku sku);
 }

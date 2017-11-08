@@ -35,4 +35,9 @@ public class SkuServiceImpl implements SkuService{
 
         return skus;
     }
+    //修改
+    @Override
+    public void updateSkuById(Sku sku){
+        skuDao.updateByPrimaryKeySelective(sku);
+    }
 }

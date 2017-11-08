@@ -18,6 +18,30 @@
             //费用
             $("#f"+skuId).attr("disabled",false);
         }
+        //保存
+		function addSku(skuId) {
+            //市场价
+            var m = $("#m" + skuId).attr("disabled",true).val();
+            //售价
+            var p = $("#p" + skuId).attr("disabled",true).val();
+            //库存
+            var s = $("#s" + skuId).attr("disabled",true).val();
+            //限制
+            var l = $("#l" + skuId).attr("disabled",true).val();
+            //费用
+            var f = $("#f" + skuId).attr("disabled",true).val();
+            var url = "/sku/addSku.do";
+            //key-value模式
+            var params = {"marketPrice" : m , "price" : p , "stock" : s , "upperLimit" : l , "deliveFee" : f , "id" : skuId};
+            //json字符串
+            //var params = '{"marketPrice" : ' + m + ' , "price" : p , "stock" : s , "upperLimit" : l , "deliveFee" : f , "id" : skuId}';
+
+            //异步保存数据到库中
+            $.post(url,params,function(data){
+                alert(data.message);
+            },"json");
+
+        }
 
 	</script>
 </head>
@@ -57,7 +81,7 @@
 			<td align="center"><input type="text" id="l${sku.id}" value="${sku.upperLimit}" disabled="disabled" size="10"/></td>
 			<td align="center"><input type="text" id="f${sku.id}" value="${sku.deliveFee}" disabled="disabled" size="10"/></td>
 			<td align="center">不是</td>
-			<td align="center"><a href="javascript:updateSku('${sku.id}')" class="pn-opt">修改</a> | <a href="javascript:addSku(52)" class="pn-opt">保存</a></td>
+			<td align="center"><a href="javascript:updateSku('${sku.id}')" class="pn-opt">修改</a> | <a href="javascript:addSku('${sku.id}')" class="pn-opt">保存</a></td>
 		</tr>
 	</c:forEach>
 
