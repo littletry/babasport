@@ -32,4 +32,10 @@ public interface ProductService {
      * @param product
      */
     public void insertProduct(Product product);
+
+    /**
+     * 上架
+     * @param ids
+     */
+    public void isShow(Long[] ids);
 }
