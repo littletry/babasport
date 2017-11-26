@@ -87,6 +87,11 @@ public class Product implements Serializable {
         return imgUrl.split(",");
     }
 
+    /**
+     * 最低价
+     */
+    private Float price;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -233,5 +238,13 @@ public class Product implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 }
