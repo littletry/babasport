@@ -1,5 +1,6 @@
 package top.lt.core.controller;
 
+import cn.itcast.common.page.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +25,9 @@ public class ProductController {
     private SearchService searchService;
     //搜索
     @RequestMapping(value = "/search")
-    public String search(String keyword, Model model) throws Exception {
-        List<Product> products = searchService.selectProductListByQuery(keyword);
-        model.addAttribute("products",products);
+    public String search(Integer pageNo,String keyword, Model model) throws Exception {
+        Pagination pagination = searchService.selectPaginationByQuery(pageNo,keyword);
+        model.addAttribute("pagination",pagination);
         return "search";
     }
 }

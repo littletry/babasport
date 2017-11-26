@@ -1,5 +1,6 @@
 package top.lt.core.service;
 
+import cn.itcast.common.page.Pagination;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -9,6 +10,7 @@ import org.apache.solr.common.SolrException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.lt.core.bean.product.Product;
+import top.lt.core.bean.product.ProductQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +26,27 @@ public class SearchServiceImpl implements SearchService{
     private SolrServer solrServer;
     //全文检索
     @Override
-    public List<Product> selectProductListByQuery(String keyword) throws Exception{
-        List<Product> products = new ArrayList<Product>();
+    public Pagination selectPaginationByQuery(Integer pageNo,String keyword) throws Exception{
+        //创建包装类
+        ProductQuery productQuery = new ProductQuery();
+        //当前页
+        productQuery.setPageNo(Pagination.cpn(pageNo));
+        //每页显示12条
+        productQuery.setPageSize(15);
 
+        //拼接条件
+        StringBuilder params = new StringBuilder();
+
+        List<Product> products = new ArrayList<Product>();
         SolrQuery solrQuery = new SolrQuery();
         //关键词
         solrQuery.set("q","name_ik:" + keyword);
+        params.append("keyword=").append(keyword);
         //高亮
         //排序
-        //分页
+        //分页 limit 开始行，每页显示条数
+        solrQuery.setStart(productQuery.getStartRow());
+        solrQuery.setRows(productQuery.getPageSize());
 
         //执行查询
         QueryResponse response = solrServer.query(solrQuery);
@@ -62,6 +76,16 @@ public class SearchServiceImpl implements SearchService{
 
             products.add(product);
         }
-        return products;
+        //构建分页对象
+        Pagination pagination = new Pagination(
+                productQuery.getPageNo(),
+                productQuery.getPageSize(),
+                (int)numFound,
+                products
+        );
+        //页面展示
+        String url = "/search";
+        pagination.pageView(url,params.toString());
+        return pagination;
     }
 }
